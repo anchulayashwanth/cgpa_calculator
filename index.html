@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive GPA Analyzer | Anchula Yashwanth</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Setup View -->
+        <div id="setup-view">
+            <header>
+                <h1>GPA <span class="accent">ANALYZER</span></h1>
+                <p>Designed by Anchula Yashwanth</p>
+            </header>
+            <div class="setup-box">
+                <label>How many subjects do you have?</label>
+                <input type="number" id="subject-count" placeholder="Enter number (e.g. 6)" min="1">
+                <button id="start-btn" onclick="initializeCalculator()">Generate Fields</button>
+            </div>
+        </div>
+
+        <!-- Calculator View -->
+        <div id="calc-view" style="display: none;">
+            <header>
+                <h1>GPA <span class="accent">ANALYZER</span></h1>
+                <p>Enter Grade Points & Credits</p>
+            </header>
+
+            <div id="subject-list" class="scroll-area">
+                <!-- Dynamic rows appear here -->
+            </div>
+
+            <div class="action-bar">
+                <button id="add-btn" onclick="addSubject()">+ Add More</button>
+                <button id="calc-btn" onclick="calculateGPA()">Calculate CGPA</button>
+            </div>
+
+            <div class="dashboard-footer">
+                <div class="stat-card">
+                    <label>CUMULATIVE GPA</label>
+                    <div id="gpa-display">0.00</div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="designer-credit">
+            Designed by <span class="designer-name">Anchula Yashwanth</span>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
