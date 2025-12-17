@@ -3,55 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive GPA Analyzer | Anchula Yashwanth</title>
+
+    <title>GPA Analyzer — Ultra Pro Max</title>
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Main Styles -->
     <link rel="stylesheet" href="style.css">
-    <link href="fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
 
-    <div class="app-container">
-        <!-- Setup View -->
-        <div id="setup-view">
+    <main class="app-container" role="application">
+
+        <!-- SETUP VIEW -->
+        <section id="setup-view" aria-labelledby="setup-title">
             <header>
-                <h1>GPA <span class="accent">ANALYZER</span></h1>
-                <p>Designed by Anchula Yashwanth</p>
+                <h1 id="setup-title">
+                    GPA <span class="accent">ANALYZER</span>
+                </h1>
+                <p class="subtitle">Designed by Anchula Yashwanth</p>
             </header>
+
             <div class="setup-box">
-                <label>How many subjects do you have?</label>
-                <input type="number" id="subject-count" placeholder="Enter number (e.g. 6)" min="1">
-                <button id="start-btn" onclick="initializeCalculator()">Generate Fields</button>
-            </div>
-        </div>
+                <label for="subject-count">
+                    Number of Subjects
+                </label>
 
-        <!-- Calculator View -->
-        <div id="calc-view" style="display: none;">
+                <input
+                    type="number"
+                    id="subject-count"
+                    placeholder="e.g. 6"
+                    min="1"
+                    inputmode="numeric"
+                >
+
+                <button id="start-btn" onclick="initializeCalculator()">
+                    Generate Fields
+                </button>
+            </div>
+        </section>
+
+        <!-- CALCULATOR VIEW -->
+        <section id="calc-view" style="display:none;" aria-labelledby="calc-title">
+
             <header>
-                <h1>GPA <span class="accent">ANALYZER</span></h1>
-                <p>Enter Grade Points & Credits</p>
+                <h1 id="calc-title">
+                    GPA <span class="accent">ANALYZER</span>
+                </h1>
+                <p class="subtitle">Enter Grade Points & Credits</p>
+                
+
             </header>
 
-            <div id="subject-list" class="scroll-area">
-                <!-- Dynamic rows appear here -->
+            <!-- SUBJECT INPUTS -->
+            <div id="subject-list" class="scroll-area" aria-live="polite">
+                <!-- Dynamic subject rows injected via JS -->
             </div>
 
+            <!-- ACTION BUTTONS -->
             <div class="action-bar">
-                <button id="add-btn" onclick="addSubject()">+ Add More</button>
-                <button id="calc-btn" onclick="calculateGPA()">Calculate CGPA</button>
+                <button id="add-btn" onclick="addSubject()">
+                    + Add Subject
+                </button>
+                <button id="calc-btn" onclick="calculateGPA()">
+                    Calculate CGPA
+                </button>
             </div>
 
+            <!-- RESULT DASHBOARD -->
             <div class="dashboard-footer">
                 <div class="stat-card">
                     <label>CUMULATIVE GPA</label>
-                    <div id="gpa-display">0.00</div>
+                    <div id="gpa-display" aria-live="assertive">0.00</div>
+                    <div id="gpa-message"></div>
                 </div>
             </div>
-        </div>
+            
 
+        </section>
+
+        <!-- FOOTER -->
         <footer class="designer-credit">
-            Designed by <span class="designer-name">Anchula Yashwanth</span>
+            Designed with ❤️ by
+            <span class="designer-name">Anchula Yashwanth</span>
         </footer>
-    </div>
 
+    </main>
+
+    <!-- SCRIPT -->
     <script src="script.js"></script>
+    <div id="celebration-overlay"></div>
+
+
 </body>
 </html>
